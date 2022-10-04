@@ -24,3 +24,10 @@ yarn-error.log*
 
 # yarn
 yarn.lock
+
+# build releases
+/build
+/electron-build
+
+# environment variables
+.env

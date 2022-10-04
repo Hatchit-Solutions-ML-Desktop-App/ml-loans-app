@@ -2,11 +2,11 @@
   "name": "ml-loans-app",
   "version": "0.1.0",
   "private": true,
-  "main": "public/main.js",
+  "main": "public/electron.js",
   "homepage": "./",
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "https://github.com/Hatchit-Solutions-ML-Desktop-App/ml-desktop"
   },
   "dependencies": {
     "@testing-library/jest-dom": "^5.14.1",
