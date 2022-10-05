@@ -1,6 +1,6 @@
 {
   "name": "ml-loans-app",
-  "version": "0.1.3",
+  "version": "0.1.2",
   "private": true,
   "main": "public/electron.js",
   "homepage": "./",
@@ -9,6 +9,7 @@
     "url": "https://github.com/Hatchit-Solutions-ML-Desktop-App/ml-loans-app"
   },
   "dependencies": {
+    "@headlessui/react": "^1.7.3",
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^13.0.0",
     "@testing-library/user-event": "^13.2.1",
@@ -22,6 +23,7 @@
     "electron-updater": "^5.2.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-router-dom": "6",
     "react-scripts": "5.0.1",
     "typescript": "^4.4.2",
     "wait-on": "^6.0.1",
@@ -32,10 +34,10 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "electron:serve": "concurrently -k \"cross-env BROWSER=none yarn start\" \"yarn electron:start\"",
+    "electron:serve": "concurrently -k \"cross-env BROWSER=none yarn start\" \"yarn electron:start\" \" nodemon server/index.js\"",
     "electron:build": "yarn build && electron-builder --win",
     "electron:start": "wait-on tcp:3000 && electron .",
-    "electron:publish": "set GH_TOKEN=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 && yarn build && electron-builder --win --publish always"
+    "electron:publish": "set GH_TOKEN=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 && yarn build && electron-builder --win --publish always"
   },
   "build": {
     "appId": "com.mlLoansApp.app",
@@ -69,7 +71,11 @@
     ]
   },
   "devDependencies": {
+    "autoprefixer": "^10.4.12",
     "electron": "^21.0.1",
-    "electron-builder": "^23.3.3"
+    "electron-builder": "^23.3.3",
+    "nodemon": "^2.0.20",
+    "postcss": "^8.4.17",
+    "tailwindcss": "^3.1.8"
   }
 }

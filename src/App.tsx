@@ -1,10 +1,13 @@
-import React from "react";
-import "./styles/App.css";
+// REACT
+import React from 'react';
+
+// STYLESHEET
+import './styles/App.css';
 
 function App() {
   return (
-    <div className="app">
-      <h1>Hello World</h1>
+    <div>
+      <h1>This is the official template | v0.1.2</h1>
     </div>
   );
 }
