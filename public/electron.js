@@ -1,14 +1,10 @@
-// ELECTRON MODULES
-const { app, BrowserWindow, Menu, dialog } = require("electron");
-
-// NODE MODULES
 const path = require("path");
-
-// DEPENDENCIES
-const isDev = require("electron-is-dev");
+const { app, dialog, BrowserWindow, Menu } = require("electron");
 const { autoUpdater } = require("electron-updater");
+const isDev = require("electron-is-dev");
 
 const createWindow = () => {
+  // Create the browser window.
   const win = new BrowserWindow({
     width: 1200,
     height: 800,
@@ -29,7 +25,6 @@ const createWindow = () => {
 app.whenReady().then(() => {
   createWindow();
 
-  // MAIN MENU
   const mainMenu = Menu.buildFromTemplate(mainMenuTemplate);
   Menu.setApplicationMenu(mainMenu);
 });
@@ -83,22 +78,28 @@ autoUpdater.on("update-not-available", (_event, releaseNotes, releaseName) => {
 });
 
 const mainMenuTemplate = [
-  //   HELP
+  {
+    label: "File",
+    submenu: [
+      {
+        label: "Quit",
+        accelerator: process.platform === "darwin" ? "Command+Q" : "Ctrl+Q",
+        click() {
+          app.quit();
+        },
+      },
+    ],
+  },
+  {
+    label: "View",
+    submenu: [],
+  },
   {
     label: "Help",
     submenu: [
       {
-        label: "About",
-      },
-      {
-        label: "View License",
-      },
-      {
-        label: "Privacy Policy and Terms of Use",
-      },
-      {
         label: "Toggle DevTools",
-        accelerator: "CmdOrCtrl+Shift+I",
+        accelerator: process.platform === "darwin" ? "Command+I" : "Ctrl+I",
         click(item, focusedWindow) {
           focusedWindow.toggleDevTools();
         },
